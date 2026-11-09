@@ -13,8 +13,8 @@ define('PASSWORD', "paso");
 
 // CONF CLASE
 
-define('HOST', "mysql:host=10.199.8.97;dbname=DBJRODWESProyectoTema5");
-define('SERVER', "10.199.8.97");
+define('HOST', "mysql:host=daw200.local.ieslossauces.es;dbname=DBJRODWESProyectoTema5");
+define('SERVER', "daw200.local.ieslossauces.es");
 define('USER', "userJRODWESProyectoTema5");
 
 // CONF CASA
