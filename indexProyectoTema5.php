@@ -54,14 +54,23 @@
             </thead>
             
             <tbody>
+
                 <tr>
                     <td>0</td>
                     <td>Mostrar el contenido de las variables superglobales y phpinfo()</td>
+                    <td><a class="btn btn-ejecutar" href="./codigoPHP/ejercicio0.php">Ejecutar</a></td>
+                    <td><a class="btn btn-codigo" href="./mostrarcodigo/muestraEjercicio0.php">Codigo</a></td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>Desarrollo de un control de acceso con identificación del usuario basado en la función header()</td>
                     <td><a class="btn btn-ejecutar" href="./codigoPHP/ejercicio1.php">Ejecutar</a></td>
                     <td><a class="btn btn-codigo" href="./mostrarcodigo/muestraEjercicio1.php">Codigo</a></td>
                 </tr>
+
                 <tr>
-                    <td>1</td>
+                    <td>2</td>
                     <td>Desarrollo de un control de acceso con identificación del usuario basado en la función header()</td>
                     <td><a class="btn btn-ejecutar" href="./codigoPHP/ejercicio2.php">Ejecutar</a></td>
                     <td><a class="btn btn-codigo" href="./mostrarcodigo/muestraEjercicio2.php">Codigo</a></td>

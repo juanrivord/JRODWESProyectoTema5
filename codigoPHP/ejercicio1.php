@@ -23,20 +23,17 @@
         require_once '../core/231018libreriaValidacion.php'; 
         require_once '../config/configDBPDO.php';
 
+        define('USUARIO', 'admin');
+        define('CONTRASEÑA', 'paso');
+
         echo "<a href='../indexProyectoTema5.php'>⬅ Volver al inicio</a><br><br>";
 
-        echo("Variables superglobales con print_r");
-
-            foreach ($GLOBALS as $nombre => $contenido) {
-                echo "<h2>$nombre</h2>";
-                echo "<pre>";
-                print_r($contenido);
-                echo "</pre>";
-                echo "<hr>";
-            }
-
-        phpinfo();
-
+        if ($_SERVER['PHP_AUTH_USER'] != 'admin' || $_SERVER['PHP_AUTH_PW'] != 'paso') {
+            header('WWW-Authenticate: Basic Realm="Contenido restringido"');
+            header('HTTP/1.0 401 Unauthorized');
+            echo "Usuario no reconocido!";
+            exit;
+        }
         
         ?>
         
