@@ -23,53 +23,19 @@
         require_once '../core/231018libreriaValidacion.php'; 
         require_once '../config/configDBPDO.php';
 
-        echo "<a href='../indexProyectoTema4.php'>⬅ Volver al inicio</a><br><br>";
+        echo "<a href='../indexProyectoTema5.php'>⬅ Volver al inicio</a><br><br>";
 
-        $aAtributosConexion = [
-            'AUTOCOMMIT', 'ERRMODE' , 'CASE' , 'CLIENT_VERSION', 'CONNECTION_STATUS',
-            'ORACLE_NULLS', 'PERSISTENT', 'PREFETCH', 'SERVER_INFO', 'SERVER_VERSION', 'TIMEOUT'
-        ];
+        echo("Variables superglobales con print_r");
 
-
-        // CONEXION ACERTADA
-        try{
-            $miDB = new PDO(HOST,USER,PASSWORD);
-            echo "Conectado a MariaDB con exito!<br/><br>";
-            echo $miDB->getAttribute(PDO::ATTR_CONNECTION_STATUS)."<br/>";
-            // echo $miDB->getAttribute(PDO::ATTR_FETCH_TABLE_NAMES)."<br/>";
-            echo $miDB->getAttribute(PDO::ATTR_SERVER_VERSION)."<br/>";
-
-            foreach ($aAtributosConexion as $atributo) {
-                echo "PDO: ATTR: ".$atributo.": ";
-                try {
-                    echo '<span class="azul">'.$miDB->getAttribute( constant( "PDO::ATTR_$atributo" ) ) . "</span><br>";
-                } catch ( PDOException $miExceptionPDO ) {
-                    echo '<span class="rojo"> <b>Error: </b>'.$miExceptionPDO->getMessage().' <b>con código de error:</b> '.$miExceptionPDO->getCode()."</span><br>";
-                }
+            foreach ($GLOBALS as $nombre => $contenido) {
+                echo "<h2>$nombre</h2>";
+                echo "<pre>";
+                print_r($contenido);
+                echo "</pre>";
+                echo "<hr>";
             }
 
-            
-        } catch (PDOException $e) {
-            echo "ERROR: ".$e->getMessage()."<br/>";
-        } finally{
-            unset($miDB);
-        }
-
-
-        echo "<hr>";
-
-
-        // PRUEBA DE MALA CONEXION
-        try{
-            $miDB = new PDO(HOST,USER,"incorecto");
-            echo "Conectado a MariaDB <br/><br>";
-
-        } catch (PDOException $e) {
-            echo "ERROR: No se pudo conectar a MariaDB!<br/><br>";
-            echo "ERROR: ".$e->getMessage()."<br/>";
-        } finally{
-            unset($miDB);
-        }
+        phpinfo();
 
         
         ?>
